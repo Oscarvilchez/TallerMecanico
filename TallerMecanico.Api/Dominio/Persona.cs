@@ -2,24 +2,31 @@
 {
     public class Persona
     {
-        public  int Id { get; private set; }
+        // 1. CAMPOS (Variables privadas)
         private string _nombre;
         private string _apellido;
-        public string Telefono { get; set; }
 
-        
-        public Persona() { }
-
+        // 2. CONSTRUCTORES
         public Persona(int id, string nombre, string apellido)
         {
             Id = id;
-            _nombre = nombre;
-            _apellido = apellido;
+            Nombre = nombre;
+            Apellido = apellido;
         }
+        public Persona(int id, string nombre, string apellido, string telefono)
+        : this(id, nombre, apellido)
+        {
+            Telefono = telefono;
+        }
+
+        // 3. PROPIEDADES
+        public int Id { get; private set; }
+        public string Telefono { get; set; }
+
         public string Nombre
         {
-           get { return _nombre; }
-           set
+            get { return _nombre; }
+            set
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
@@ -30,21 +37,24 @@
         }
         public string Apellido
         {
-           get { return _apellido; }
-           set 
+            get { return _apellido; }
+            set
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException("El apellido no puede estar vacío o ser nulo.");                    
+                    throw new ArgumentException("El apellido no puede estar vacío o ser nulo.");
                 }
                 _apellido = value;
             }
         }
-        public string NombreCompleto
-        {
-            get { return Nombre + " " + Apellido; }
-        }
+        public string NombreCompleto { get { return Nombre + " " + Apellido; } }
 
-        
+
+        // 4. MÉTODOS
+       
+        public void MostrarNombreCompleto()
+        {
+            Console.WriteLine($"Nombre completo: {NombreCompleto}");
+        }
     }
 }
