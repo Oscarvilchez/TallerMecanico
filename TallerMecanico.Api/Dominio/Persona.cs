@@ -7,6 +7,9 @@
         private string _apellido;
 
         // 2. CONSTRUCTORES
+        public Persona()
+        {
+        }
         public Persona(int id, string nombre, string apellido)
         {
             Id = id;
@@ -21,7 +24,7 @@
 
         // 3. PROPIEDADES
         public int Id { get; private set; }
-        public string Telefono { get; set; }
+        public string? Telefono { get; set; }
 
         public string Nombre
         {
