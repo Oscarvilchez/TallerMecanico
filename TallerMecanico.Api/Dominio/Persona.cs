@@ -57,7 +57,7 @@
        
         public void MostrarNombreCompleto()
         {
-            Console.WriteLine($"Nombre completo: {NombreCompleto}");
+            Console.WriteLine("Nombre completo: "+ NombreCompleto);
         }
     }
 }
