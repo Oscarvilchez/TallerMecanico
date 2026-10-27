@@ -22,11 +22,13 @@ catch (Exception ex)
 
 
 var controller = new PersonaConsolaController();
+
 //GET
 // 1. Ver los registros actuales
 controller.GetPersona();
-//-------------------------------------------------------------------
 
+
+//-------------------------------------------------------------------
 
 
 //POST
@@ -48,9 +50,8 @@ controller.PostPersona(nombre, apellido, telefono);
 // 4. Volver a listar para confirmar
 controller.GetPersona();
 
+ 
 //-------------------------------------------------------------------
-
-
 
 
 //PUT
@@ -78,12 +79,12 @@ controller.PutPersona (id, nombre, apellido,telefono);
 // 4. Volver a listar para confirmar el cambio
 controller.GetPersona();
 
+
 //-------------------------------------------------------------------
 
 
 //DELETE
-// 1. Ver los registros actuales
-var controller = new PersonaConsolaController(); 
+// 1. Ver los registros actuales 
 controller.GetPersona();
 
 // 2. Pedir datos por consola interactivamente
