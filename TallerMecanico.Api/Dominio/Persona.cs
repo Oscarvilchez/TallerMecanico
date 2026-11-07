@@ -1,4 +1,5 @@
-﻿namespace TallerMecanico.Api.Dominio
+﻿using System;
+namespace TallerMecanico.Api.Dominio
 {
     public class Persona
     {
@@ -17,7 +18,7 @@
             Apellido = apellido;
         }
         public Persona(int id, string nombre, string apellido, string telefono)
-        : this(id, nombre, apellido)
+        : this(id, nombre, apellido) //Encadenamiento de constructores.
         {
             Telefono = telefono;
         }
@@ -26,7 +27,7 @@
         public int Id { get; private set; }
         public string? Telefono { get; set; }
 
-        public string Nombre
+        public required string Nombre
         {
             get { return _nombre; }
             set
@@ -38,7 +39,7 @@
                 _nombre = value;
             }
         }
-        public string Apellido
+        public required string Apellido
         {
             get { return _apellido; }
             set
@@ -53,11 +54,11 @@
         public string NombreCompleto { get { return Nombre + " " + Apellido; } }
 
 
-        // 4. MÉTODOS
+        /*/ 4. MÉTODOS
        
         public void MostrarNombreCompleto()
         {
             Console.WriteLine("Nombre completo: "+ NombreCompleto);
-        }
+        }*/
     }
 }
