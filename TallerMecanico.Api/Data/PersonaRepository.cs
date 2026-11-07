@@ -1,41 +1,45 @@
-﻿using TallerMecanico.Api.Data;
+﻿using System.Collections.Generic;
+using System.Linq;
 using TallerMecanico.Api.Dominio;
 
 namespace TallerMecanico.Api.Data
 {
     public class PersonaRepository
     {
+        //variable solo lectura llamada _context cuyo tipo de dato es AppDbContext.
+        private readonly AppDbContext _context;
+
+        public PersonaRepository(AppDbContext context)
+        {
+            _context = context;
+        }
+        //IMPLEMENTACIOND EL CRUD DE LA CLASE PERSONA
         public List<Persona> ObtenerTodas()
         {
-            using var context = new AppDbContext();
-            return context.Personas.ToList();
+            return _context.Personas.ToList();
         }
 
         public Persona ObtenerPorId(int id)
         {
-            using var context = new AppDbContext();
-            return context.Personas.Find(id);
+            return _context.Personas.Find(id);
         }
 
         public void Agregar(Persona persona)
         {
-            using var context = new AppDbContext();
-            context.Personas.Add(persona);
-            context.SaveChanges();
+            _context.Personas.Add(persona);
+            _context.SaveChanges();
         }
 
         public void Actualizar(Persona persona)
         {
-            using var context = new AppDbContext();
-            context.Personas.Update(persona);
-            context.SaveChanges();
+            _context.Personas.Update(persona);
+            _context.SaveChanges();
         }
 
         public void Eliminar(Persona persona)
         {
-            using var context = new AppDbContext();
-            context.Personas.Remove(persona);
-            context.SaveChanges();
+            _context.Personas.Remove(persona);
+            _context.SaveChanges();
         }
     }
 }
