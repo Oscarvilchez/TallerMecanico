@@ -6,9 +6,9 @@ using System.Collections.Generic;
 namespace TallerMecanico.Api.Controllers
 {
     // ETIQUETAS DE LA CLASE
-    [ApiController]                     // Le dice a .NET que esta clase es controlador de API Web
-    [Route("api/[controller]")]         // Define la URL automática para entrar aquí: api/persona
-    public class PersonaController : ControllerBase // <-- ¡ESTO te da el método Ok()!
+    [ApiController]                    
+    [Route("api/[controller]")] 
+    public class PersonaController : ControllerBase 
     {
         private readonly PersonaRepository _repository;
         
@@ -32,8 +32,7 @@ namespace TallerMecanico.Api.Controllers
         public IActionResult PostPersona([FromBody] Persona nuevaPersona)
         {
             try
-            { 
-            // [FromBody] significa que los datos de la persona vienen en el cuerpo de la petición web
+            {            
             _repository.Agregar(nuevaPersona);
 
             return Ok(new { mensaje = "Persona agregada con éxito", datos = nuevaPersona });
