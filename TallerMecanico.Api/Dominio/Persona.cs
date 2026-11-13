@@ -4,8 +4,8 @@ namespace TallerMecanico.Api.Dominio
     public class Persona
     {
         // 1. CAMPOS (Variables privadas)
-        private string _nombre;
-        private string _apellido;
+        private string _nombre = string.Empty;
+        private string _apellido = string.Empty;
 
         // 2. CONSTRUCTORES
         public Persona()
